@@ -33,6 +33,6 @@ public class Order {
 	@Column(name = "valor", precision = 10, scale = 2)
 	private Double value;
 	
-	@OneToMany(mappedBy = "item_pedido")
+	@OneToMany(mappedBy = "order")
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 }
