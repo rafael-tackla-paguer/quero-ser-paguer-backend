@@ -9,7 +9,7 @@ public interface ProductService {
 
 	Product save (Product product);
 	
-	Optional<Product> update(Long id, Product product);
+	Product update(Product product);
 	
 	void delete(Long id);
 	

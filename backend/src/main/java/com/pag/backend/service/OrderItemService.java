@@ -9,7 +9,7 @@ public interface OrderItemService {
 
 	OrderItem save (OrderItem orderItem);
 	
-	Optional<OrderItem> update(Long id, OrderItem orderItem);
+	OrderItem update(OrderItem orderItem);
 	
 	void delete(Long id);
 	

@@ -22,13 +22,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Optional<Customer> update(Long id, Customer customer) {
-		return repository.findById(id).map(updateCustomer -> {
-			updateCustomer.setBirthDate(customer.getBirthDate());
-			updateCustomer.setCpf(customer.getCpf());
-			updateCustomer.setName(customer.getName());
-			return repository.save(updateCustomer);
-		});
+	public Customer update(Customer customer) {
+		return repository.save(customer);
 	}
 
 	@Override

@@ -20,12 +20,8 @@ public class OrderItemServiceImpl implements OrderItemService {
 	}
 
 	@Override
-	public Optional<OrderItem> update(Long id, OrderItem orderItem) {
-		return repository.findById(id).map(mapper -> {
-			mapper.setAmount(orderItem.getAmount());
-			mapper.setPrice(orderItem.getPrice());
-			return repository.save(mapper);
-		});
+	public OrderItem update(OrderItem orderItem) {
+		return repository.save(orderItem);
 	}
 
 	@Override

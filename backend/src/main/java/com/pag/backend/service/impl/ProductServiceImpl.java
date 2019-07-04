@@ -20,13 +20,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Optional<Product> update(Long id, Product product) {
-		return repository.findById(id)
-				.map(updateProduct -> {
-						updateProduct.setName(product.getName());
-						updateProduct.setSuggestedPrice(product.getSuggestedPrice());
-						return repository.save(updateProduct);
-				});
+	public Product update(Product product) {
+		return repository.save(product);
 	}
 
 	@Override

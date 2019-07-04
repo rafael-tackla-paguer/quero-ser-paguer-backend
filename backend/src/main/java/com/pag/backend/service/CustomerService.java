@@ -9,7 +9,7 @@ public interface CustomerService {
 
 	Customer save (Customer customer);
 	
-	Optional<Customer> update(Long id, Customer customer);
+	Customer update(Customer customer);
 	
 	void delete(Long id);
 	

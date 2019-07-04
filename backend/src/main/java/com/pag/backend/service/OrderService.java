@@ -9,7 +9,7 @@ public interface OrderService {
 	
 	Order save (Order order);
 	
-	Optional<Order> update(Long id, Order order);
+	Order update(Order order);
 	
 	void delete(Long id);
 	
