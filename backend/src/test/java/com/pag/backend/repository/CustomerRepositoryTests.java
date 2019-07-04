@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.pag.backend.builders.CustomerBuilder;
-import com.pag.backend.domain.Customer;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CustomerRepositoryTests {
