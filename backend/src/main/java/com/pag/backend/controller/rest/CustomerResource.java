@@ -1,5 +1,7 @@
 package com.pag.backend.controller.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pag.backend.domain.Customer;
+import com.pag.backend.domain.Order;
 import com.pag.backend.service.CustomerService;
 
 @RestController
@@ -22,7 +25,7 @@ public class CustomerResource {
 	private CustomerService service;
 	
 	@PostMapping
-	public ResponseEntity<Customer> save (@RequestBody Customer customer){
+	public ResponseEntity<Customer> save(@RequestBody Customer customer){
 		Customer createdCustomer = service.save(customer);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer);
 	}
@@ -38,5 +41,16 @@ public class CustomerResource {
 	public ResponseEntity<Customer> findById(@PathVariable("id") Long id) {
 		Customer customer = service.findById(id);
 		return ResponseEntity.ok(customer);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<Customer>> findAll(){
+		List<Customer> customers = service.findAll();
+		return ResponseEntity.ok(customers);
+	}
+	
+	@GetMapping("/{id}/orders")
+	public ResponseEntity<List<Order>> findAllOrdersByCustomer(@PathVariable(name = "id") Long id){
+		return null;
 	}
 }
