@@ -1,5 +1,7 @@
 package com.pag.backend.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +19,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "item_pedido")
-public class OrderItem {
+public class OrderItem implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3203521209953222840L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
