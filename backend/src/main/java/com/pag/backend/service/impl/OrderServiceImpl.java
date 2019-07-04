@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.pag.backend.domain.Order;
 import com.pag.backend.repository.OrderRepository;
 import com.pag.backend.service.OrderService;
+import com.pag.backend.service.exception.NotFoundException;
 
 public class OrderServiceImpl implements OrderService {
 
@@ -35,8 +36,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Optional<Order> findById(Long id) {
-		return repository.findById(id);
+	public Order findById(Long id) {
+		Optional<Order> result = repository.findById(id);
+		return result.orElseThrow(()-> new NotFoundException() );
 	}
 
 }

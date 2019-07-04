@@ -3,6 +3,7 @@ package com.pag.backend.controller.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,5 +32,11 @@ public class CustomerResource {
 		customer.setId(id);
 		Customer updatedCustomer = service.update(customer);
 		return ResponseEntity.ok(updatedCustomer);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Customer> findById(@PathVariable("id") Long id) {
+		Customer customer = service.findById(id);
+		return ResponseEntity.ok(customer);
 	}
 }

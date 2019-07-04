@@ -1,7 +1,6 @@
 package com.pag.backend.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.pag.backend.domain.Product;
 
@@ -15,6 +14,6 @@ public interface ProductService {
 	
 	List<Product> findAll();
 	
-	Optional<Product> findById(Long id);
+	Product findById(Long id);
 	
 }

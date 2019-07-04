@@ -1,7 +1,6 @@
 package com.pag.backend.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.pag.backend.domain.Customer;
 
@@ -15,6 +14,6 @@ public interface CustomerService {
 	
 	List<Customer> findAll();
 	
-	Optional<Customer> findById(Long id);
+	Customer findById(Long id);
 	
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.pag.backend.domain.Product;
 import com.pag.backend.repository.ProductRepository;
 import com.pag.backend.service.ProductService;
+import com.pag.backend.service.exception.NotFoundException;
 
 public class ProductServiceImpl implements ProductService {
 
@@ -35,8 +36,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Optional<Product> findById(Long id) {
-		return repository.findById(id);
+	public Product findById(Long id) {
+		Optional<Product> result = repository.findById(id);
+		return result.orElseThrow(()-> new NotFoundException());
 	}
 
 }

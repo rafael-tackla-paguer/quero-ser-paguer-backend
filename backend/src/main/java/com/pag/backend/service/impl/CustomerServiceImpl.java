@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.pag.backend.domain.Customer;
 import com.pag.backend.repository.CustomerRepository;
 import com.pag.backend.service.CustomerService;
+import com.pag.backend.service.exception.NotFoundException;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -37,8 +38,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Optional<Customer> findById(Long id) {
-		return repository.findById(id);
+	public Customer findById(Long id) {
+		Optional<Customer> result = repository.findById(id);
+		return result.orElseThrow(()-> new NotFoundException() );
 	}
 
 }
