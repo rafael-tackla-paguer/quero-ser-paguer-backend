@@ -1,6 +1,7 @@
 package com.pag.backend.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,14 +30,14 @@ public class Order implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@ManyToOne
-	@JoinColumn(name = "cliente_id", nullable = false)
+	@JoinColumn(name = "id_cliente", nullable = false)
 	private Customer customer;
 	
 	@Column(name = "valor", precision = 10, scale = 2)
-	private Double value;
+	private BigDecimal value;
 	
 	@OneToMany(mappedBy = "order")
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();

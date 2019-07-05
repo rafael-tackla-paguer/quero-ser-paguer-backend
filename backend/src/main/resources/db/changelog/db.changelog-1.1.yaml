@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: createTable-produto
+      author: rafael.tackla
+      changes:
+        - createTable:
+            tableName: produto
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nome
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: preco_sugerido
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: addUniqueConstraint-uk_nome_produto
+      author: rafael.tackla
+      changes:                    
+        - addUniqueConstraint:
+            constraintName: uk_nome_produto
+            tableName: produto                      
+            columnNames: nome

@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: createTable-pedido
+      author: rafael.tackla
+      changes:
+        - createTable:
+            tableName: pedido
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: id_cliente
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: valor
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: addForeignKeyConstraint-fk_pedido_cliente
+      author: rafael.tackla                    
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: fk_pedido_cliente
+            baseTableName: pedido
+            baseColumnNames: id_cliente
+            referencedTableName: cliente
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            

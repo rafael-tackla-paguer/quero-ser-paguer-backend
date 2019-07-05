@@ -1,6 +1,7 @@
 package com.pag.backend.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,19 +29,19 @@ public class OrderItem implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "pedido_id", nullable = false)
+	@JoinColumn(name = "id_pedido", nullable = false)
 	private Order order;
 	
 	@OneToOne(optional = false)
-	@JoinColumn(name = "produto_id", nullable = false)
+	@JoinColumn(name = "id_produto", nullable = false)
 	private Product product;
 	
 	@Column(name = "quantidade", precision = 10, scale = 2)
-	private Double amount;
+	private BigDecimal amount;
 	
 	@Column(name = "preco",precision = 10, scale = 2)
-	private Double price;
+	private BigDecimal price;
 }

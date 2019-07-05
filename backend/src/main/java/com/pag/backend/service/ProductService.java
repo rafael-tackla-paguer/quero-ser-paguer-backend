@@ -10,10 +10,10 @@ public interface ProductService {
 	
 	Product update(Product product);
 	
-	void delete(Long id);
+	void delete(Integer id);
 	
 	List<Product> findAll();
 	
-	Product findById(Long id);
+	Product findById(Integer id);
 	
 }

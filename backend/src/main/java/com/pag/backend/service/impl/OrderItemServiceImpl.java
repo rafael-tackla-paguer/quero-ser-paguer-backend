@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pag.backend.domain.OrderItem;
 import com.pag.backend.repository.OrderItemRepository;
 import com.pag.backend.service.OrderItemService;
 import com.pag.backend.service.exception.NotFoundException;
 
+@Service
 public class OrderItemServiceImpl implements OrderItemService {
 
 	@Autowired
@@ -26,7 +28,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(Integer id) {
 		repository.deleteById(id);
 	}
 
@@ -36,7 +38,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 	}
 
 	@Override
-	public OrderItem findById(Long id) {
+	public OrderItem findById(Integer id) {
 		Optional<OrderItem> result = repository.findById(id);
 		return result.orElseThrow(()-> new NotFoundException());
 	}

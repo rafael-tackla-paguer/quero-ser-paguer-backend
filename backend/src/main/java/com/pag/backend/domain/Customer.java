@@ -31,13 +31,13 @@ public class Customer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@Column(name = "nome", length = 100, nullable = false)
 	private String name;
 	
-	@Column(length = 11, nullable = false, unique = true)
-	private String cpf;
+	@Column(length = 11, nullable = false, unique = true, columnDefinition = "char(11)")
+	private Character cpf;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_nascimento")

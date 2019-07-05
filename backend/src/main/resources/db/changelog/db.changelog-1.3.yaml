@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: createTable-item_pedido
+      author: rafael.tackla
+      changes:
+        - createTable:
+            tableName: item_pedido
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: id_pedido
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_produto
+                  type: int
+                  constraints:
+                    nullable: false         
+              - column:
+                  name: quantidade
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false            
+              - column:
+                  name: preco
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false      
+  - changeSet:
+      id: addForeignKeyConstraint-fk_itempedido_produto
+      author: rafael.tackla
+      changes:                                                        
+        - addForeignKeyConstraint:
+            constraintName: fk_itempedido_produto
+            baseTableName: item_pedido
+            baseColumnNames: id_produto
+            referencedTableName: produto
+            referencedColumnNames: id
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+  - changeSet:
+      id: addForeignKeyConstraint-fk_itempedido_pedido
+      author: rafael.tackla
+      changes:                
+        - addForeignKeyConstraint:
+            constraintName: fk_itempedido_pedido
+            baseTableName: item_pedido
+            baseColumnNames: id_pedido
+            referencedTableName: pedido
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT            

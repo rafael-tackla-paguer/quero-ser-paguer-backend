@@ -10,9 +10,9 @@ public interface OrderItemService {
 	
 	OrderItem update(OrderItem orderItem);
 	
-	void delete(Long id);
+	void delete(Integer id);
 	
 	List<OrderItem> findAll();
 	
-	OrderItem findById(Long id);
+	OrderItem findById(Integer id);
 }

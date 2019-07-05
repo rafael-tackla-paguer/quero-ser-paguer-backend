@@ -10,10 +10,10 @@ public interface CustomerService {
 	
 	Customer update(Customer customer);
 	
-	void delete(Long id);
+	void delete(Integer id);
 	
 	List<Customer> findAll();
 	
-	Customer findById(Long id);
+	Customer findById(Integer id);
 	
 }

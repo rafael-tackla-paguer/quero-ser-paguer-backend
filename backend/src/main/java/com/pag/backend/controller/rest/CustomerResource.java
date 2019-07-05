@@ -31,14 +31,14 @@ public class CustomerResource {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Customer> update(@PathVariable(name = "id") Long id, @RequestBody Customer customer){
+	public ResponseEntity<Customer> update(@PathVariable(name = "id") Integer id, @RequestBody Customer customer){
 		customer.setId(id);
 		Customer updatedCustomer = service.update(customer);
 		return ResponseEntity.ok(updatedCustomer);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Customer> findById(@PathVariable("id") Long id) {
+	public ResponseEntity<Customer> findById(@PathVariable("id") Integer id) {
 		Customer customer = service.findById(id);
 		return ResponseEntity.ok(customer);
 	}

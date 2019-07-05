@@ -1,6 +1,7 @@
 package com.pag.backend.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,11 +26,11 @@ public class Product implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@Column(name = "nome", length = 100, nullable = false, unique = true)
 	private String name;
 	
 	@Column(name = "preco_sugerido", precision = 10, scale = 2)
-	private Double suggestedPrice;
+	private BigDecimal suggestedPrice;
 }

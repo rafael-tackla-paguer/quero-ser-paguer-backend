@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: createTable-cliente
+      author: rafael.tackla
+      changes:
+        - createTable:
+            tableName: cliente
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nome
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cpf
+                  type: char(11)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data_nascimento
+                  type: date
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: addUniqueConstraint-uk_cpf_cliente
+      author: rafael.tackla
+      changes:                      
+        - addUniqueConstraint:
+            constraintName: uk_cpf_cliente
+            tableName: cliente
+            columnNames: cpf

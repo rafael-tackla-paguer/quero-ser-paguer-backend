@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(Integer id) {
 		repository.deleteById(id);
 	}
 
@@ -38,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer findById(Long id) {
+	public Customer findById(Integer id) {
 		Optional<Customer> result = repository.findById(id);
 		return result.orElseThrow(()-> new NotFoundException() );
 	}

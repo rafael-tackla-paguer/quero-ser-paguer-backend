@@ -30,14 +30,14 @@ public class ProductResource {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Product> update(@PathVariable(name = "id") Long id, @RequestBody Product product){
+	public ResponseEntity<Product> update(@PathVariable(name = "id") Integer id, @RequestBody Product product){
 		product.setId(id);
 		Product updatedProduct = service.update(product);
 		return ResponseEntity.ok(updatedProduct);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Product> findById(@PathVariable("id") Long id) {
+	public ResponseEntity<Product> findById(@PathVariable("id") Integer id) {
 		Product product = service.findById(id);
 		return ResponseEntity.ok(product);
 	}
