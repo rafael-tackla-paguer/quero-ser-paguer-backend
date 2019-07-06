@@ -1,6 +1,5 @@
 package com.pag.backend.controller.rest;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pag.backend.domain.OrderItem;
-import com.pag.backend.dto.OrderItemDto;
 import com.pag.backend.model.PageModel;
 import com.pag.backend.service.OrderItemService;
 
@@ -27,17 +25,8 @@ public class OrderItemResource {
 	@Autowired
 	private OrderItemService service;
 	
-	@Autowired
-	private ModelMapper modelMapper;
-
-	private OrderItem convertToEntity(OrderItemDto dto) {
-		OrderItem map = modelMapper.map(dto, OrderItem.class);
-		return map;
-	}
-	
 	@PostMapping
-	public ResponseEntity<OrderItem> save(@RequestBody OrderItemDto orderItemDto){
-		OrderItem orderItem = convertToEntity(orderItemDto);
+	public ResponseEntity<OrderItem> save(@RequestBody OrderItem orderItem){
 		OrderItem createdOrderItem = service.save(orderItem);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdOrderItem);
 	}
