@@ -3,6 +3,8 @@ package com.pag.backend.controller.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pag.backend.domain.Customer;
 import com.pag.backend.domain.Order;
+import com.pag.backend.model.PageModel;
 import com.pag.backend.service.CustomerService;
 
 @RestController
@@ -44,8 +48,12 @@ public class CustomerResource {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Customer>> findAll(){
-		List<Customer> customers = service.findAll();
+	public ResponseEntity<PageModel<Customer>> findAll(@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "size", defaultValue = "10") int size) {
+		
+		Pageable pageable = PageRequest.of(page, size);
+		PageModel<Customer> customers = service.findAll(pageable);
+		
 		return ResponseEntity.ok(customers);
 	}
 	

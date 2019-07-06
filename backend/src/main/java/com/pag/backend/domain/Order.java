@@ -14,8 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -39,6 +42,7 @@ public class Order implements Serializable{
 	@Column(name = "valor", precision = 10, scale = 2)
 	private BigDecimal value;
 	
+	@Getter(onMethod_={@JsonIgnore})
 	@OneToMany(mappedBy = "order")
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 }

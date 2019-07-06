@@ -2,7 +2,10 @@ package com.pag.backend.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
+
 import com.pag.backend.domain.Product;
+import com.pag.backend.model.PageModel;
 
 public interface ProductService {
 
@@ -16,4 +19,5 @@ public interface ProductService {
 	
 	Product findById(Integer id);
 	
+	PageModel<Product> findAll(Pageable pageable);
 }

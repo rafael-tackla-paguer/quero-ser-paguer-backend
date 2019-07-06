@@ -1,13 +1,31 @@
 spring:
+  profiles:
+    active: local
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: 1234
-    url: jdbc:mysql://localhost:3306/pag_backend_db?useTimezone=true&serverTimezone=America/Sao_Paulo
-    username: root
   jpa:
     database: mysql
     hibernate:
       ddl-auto: validate
-    show-sql: true
   liquibase:
     enabled: true
+
+---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/pag_backend_db?useTimezone=true&serverTimezone=America/Sao_Paulo
+    username: root
+    password: 1234
+  jpa:
+    show-sql: true
+    
+---
+spring:
+  profiles: aws
+  datasource:
+    url: jdbc:mysql://mysql-pag.cjviqrm8l8io.us-east-1.rds.amazonaws.com:3306/pag_backend_db
+    username: root
+    password: pag_backend
+  jpa:
+    show-sql: false

@@ -2,7 +2,10 @@ package com.pag.backend.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
+
 import com.pag.backend.domain.OrderItem;
+import com.pag.backend.model.PageModel;
 
 public interface OrderItemService {
 
@@ -15,4 +18,6 @@ public interface OrderItemService {
 	List<OrderItem> findAll();
 	
 	OrderItem findById(Integer id);
+
+	PageModel<OrderItem> findAll(Pageable pageable);
 }
