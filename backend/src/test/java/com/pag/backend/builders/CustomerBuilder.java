@@ -2,11 +2,12 @@ package com.pag.backend.builders;
 
 import com.pag.backend.domain.Customer;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class CustomerBuilder {
 
 	private Customer customer;
-	
-	private CustomerBuilder() {};
 	
 	public static CustomerBuilder oneCustomer() {
 		CustomerBuilder builder = new CustomerBuilder();
@@ -17,6 +18,11 @@ public class CustomerBuilder {
 	
 	public CustomerBuilder withName(String name) {
 		customer.setName(name);
+		return this;
+	}
+	
+	public CustomerBuilder withCpf(String cpf) {
+		customer.setCpf(cpf);
 		return this;
 	}
 	

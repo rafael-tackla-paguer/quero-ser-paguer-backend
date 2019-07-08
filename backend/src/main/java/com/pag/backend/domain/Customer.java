@@ -42,7 +42,7 @@ public class Customer implements Serializable {
 	private String name;
 	
 	@Column(length = 11, nullable = false, unique = true, columnDefinition = "char(11)")
-	private Character cpf;
+	private String cpf;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_nascimento")
