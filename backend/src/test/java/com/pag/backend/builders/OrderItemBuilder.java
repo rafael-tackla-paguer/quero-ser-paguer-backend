@@ -4,9 +4,10 @@ import java.math.BigDecimal;
 
 import com.pag.backend.domain.OrderItem;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderItemBuilder {
 
 	private OrderItem orderItem;

@@ -11,9 +11,10 @@ import com.pag.backend.domain.Customer;
 import com.pag.backend.domain.Order;
 import com.pag.backend.domain.OrderItem;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderBuilder {
 	private Order order;
 	

@@ -2,9 +2,10 @@ package com.pag.backend.builders;
 
 import com.pag.backend.domain.Customer;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CustomerBuilder {
 
 	private Customer customer;
