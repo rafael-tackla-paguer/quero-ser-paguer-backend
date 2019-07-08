@@ -54,4 +54,10 @@ public class OrderServiceImpl implements OrderService {
 		return pageModel;
 	}
 
+	@Override
+	public PageModel<Order> findAllByCustomerId(Integer idCustomer, Pageable pageable) {
+		Page<Order> pagedResult = repository.findAllByCustomerId(idCustomer, pageable);
+		PageModel<Order> pageModel= new PageModel<Order>(pagedResult.getTotalElements(), pagedResult.getSize(), pagedResult.getTotalPages(), pagedResult.getContent());
+		return pageModel;
+	}
 }

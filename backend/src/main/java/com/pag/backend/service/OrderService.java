@@ -20,4 +20,6 @@ public interface OrderService {
 	Order findById(Integer id);
 
 	PageModel<Order> findAll(Pageable pageable);
+	
+	PageModel<Order> findAllByCustomerId(Integer id, Pageable pageable);
 }
