@@ -11,8 +11,13 @@ public class CustomerBuilder {
 	public static CustomerBuilder oneCustomer() {
 		CustomerBuilder builder = new CustomerBuilder();
 		builder.customer = new Customer();
-		builder.customer.setName("Um cliente");
+		builder.customer.setName("Cliente 1");
 		return builder;
+	}
+	
+	public CustomerBuilder withName(String name) {
+		customer.setName(name);
+		return this;
 	}
 	
 	public Customer now() {
