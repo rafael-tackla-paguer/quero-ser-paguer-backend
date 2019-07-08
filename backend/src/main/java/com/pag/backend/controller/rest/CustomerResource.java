@@ -2,6 +2,8 @@ package com.pag.backend.controller.rest;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -29,7 +31,7 @@ public class CustomerResource {
 	private CustomerService service;
 	
 	@PostMapping
-	public ResponseEntity<Customer> save(@RequestBody Customer customer){
+	public ResponseEntity<Customer> save(@RequestBody @Valid Customer customer){
 		Customer createdCustomer = service.save(customer);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer);
 	}
