@@ -1,6 +1,7 @@
 package com.pag.backend.domain;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
@@ -50,4 +51,17 @@ public class CustomerTest {
 		//verificacao
 		assertFalse(violations.isEmpty());		
 	}
+	
+	@Test
+	public void customerNoNameConstraintViolationTest() {
+		//cenario
+		Customer customer = CustomerBuilder.oneCustomer().now();
+		
+		//acao
+		Set<ConstraintViolation<Customer>> violations = validator.validate(customer);
+        
+		//verificacao
+		assertTrue(violations.isEmpty());		
+	}
+	
 }
