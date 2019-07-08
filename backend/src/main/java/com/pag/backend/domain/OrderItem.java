@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,13 +35,16 @@ public class OrderItem implements Serializable{
 	
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_pedido", nullable = false)
+	@NotNull(message = "order required")
 	private Order order;
 	
 	@OneToOne(optional = false)
 	@JoinColumn(name = "id_produto", nullable = false)
+	@NotNull(message = "product required")
 	private Product product;
 	
 	@Column(name = "quantidade", precision = 10, scale = 2)
+	@Min(value = 1, message = "At least 1 product required")
 	private BigDecimal amount;
 	
 	@Column(name = "preco",precision = 10, scale = 2)

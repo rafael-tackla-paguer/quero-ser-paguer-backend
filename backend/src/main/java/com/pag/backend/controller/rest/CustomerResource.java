@@ -36,14 +36,14 @@ public class CustomerResource {
 	@PostMapping
 	public ResponseEntity<Customer> save(@RequestBody @Valid Customer customer){
 		if (customer.getId()!=null)
-			throw new RuntimeException("Para criação de cliente, não deve se passar o \"id\"");
+			throw new RuntimeException("For creation, you must not pass an id");
 				
 		Customer createdCustomer = service.save(customer);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Customer> update(@PathVariable(name = "id") Integer id, @RequestBody Customer customer){
+	public ResponseEntity<Customer> update(@PathVariable(name = "id") Integer id, @RequestBody @Valid Customer customer){
 		customer.setId(id);
 		Customer updatedCustomer = service.update(customer);
 		return ResponseEntity.ok(updatedCustomer);

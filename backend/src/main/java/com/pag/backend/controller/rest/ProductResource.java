@@ -1,5 +1,7 @@
 package com.pag.backend.controller.rest;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,13 +28,16 @@ public class ProductResource {
 	private ProductService service;
 	
 	@PostMapping
-	public ResponseEntity<Product> save(@RequestBody Product product){
+	public ResponseEntity<Product> save(@RequestBody @Valid Product product){
+		if (product.getId()!=null)
+			throw new RuntimeException("For creation, you must not pass an id");
+		
 		Product createdProduct = service.save(product);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Product> update(@PathVariable(name = "id") Integer id, @RequestBody Product product){
+	public ResponseEntity<Product> update(@PathVariable(name = "id") Integer id, @RequestBody @Valid Product product){
 		product.setId(id);
 		Product updatedProduct = service.update(product);
 		return ResponseEntity.ok(updatedProduct);

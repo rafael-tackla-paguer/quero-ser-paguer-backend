@@ -1,5 +1,7 @@
 package com.pag.backend.controller.rest;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,13 +28,13 @@ public class OrderResource {
 	private OrderService service;
 	
 	@PostMapping
-	public ResponseEntity<Order> save(@RequestBody Order order){
+	public ResponseEntity<Order> save(@RequestBody @Valid Order order){
 		Order createdOrder = service.save(order);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Order> update(@PathVariable(name = "id") Integer id, @RequestBody Order order){
+	public ResponseEntity<Order> update(@PathVariable(name = "id") Integer id, @RequestBody @Valid Order order){
 		order.setId(id);
 		Order updatedOrder = service.update(order);
 		return ResponseEntity.ok(updatedOrder);

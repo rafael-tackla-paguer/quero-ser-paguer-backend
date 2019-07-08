@@ -28,6 +28,13 @@ public class ResourceExceptionHandler extends ResponseEntityExceptionHandler{
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 	}
 	
+	@ExceptionHandler(RuntimeException.class)
+	public ResponseEntity<ApiErrorModel> handleNotFoundException(RuntimeException ex) {
+		ApiErrorModel error = new ApiErrorModel(HttpStatus.NOT_FOUND.value(), ex.getMessage(), new Date());
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+	}
+	
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,

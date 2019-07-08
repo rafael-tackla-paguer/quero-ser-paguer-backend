@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -41,9 +42,11 @@ public class Customer implements Serializable {
 	@Column(name = "nome", length = 100, nullable = false)
 	private String name;
 	
+	@NotBlank(message = "CPF required")
 	@Column(length = 11, nullable = false, unique = true, columnDefinition = "char(11)")
 	private String cpf;
 	
+	@NotNull(message = "Birth date required")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_nascimento")
 	private Date birthDate;

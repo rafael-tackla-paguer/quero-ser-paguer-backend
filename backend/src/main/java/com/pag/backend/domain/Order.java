@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -37,6 +38,7 @@ public class Order implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", nullable = false)
+	@NotNull(message = "customer required")
 	private Customer customer;
 	
 	@Column(name = "valor", precision = 10, scale = 2)

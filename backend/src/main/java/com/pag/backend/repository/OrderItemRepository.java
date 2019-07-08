@@ -10,7 +10,7 @@ import com.pag.backend.domain.OrderItem;
 
 public interface OrderItemRepository extends JpaRepository<OrderItem, Integer> {
 
-	@Query("from item_pedido _this where _this.pedido.id =:orderId")
+	@Query("from item_pedido _this where _this.order.id =:orderId")
 	List<OrderItem> findAllByOrderId(@Param("orderId") Integer orderId);
 
 }
