@@ -14,6 +14,9 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,6 +39,7 @@ public class OrderItem implements Serializable{
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_pedido", nullable = false)
 	@NotNull(message = "order required")
+	@JsonIgnoreProperties("orderItems")
 	private Order order;
 	
 	@OneToOne(optional = false)

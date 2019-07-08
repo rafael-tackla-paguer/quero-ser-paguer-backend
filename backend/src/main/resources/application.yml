@@ -9,6 +9,8 @@ spring:
       ddl-auto: validate
   liquibase:
     enabled: true
+  jackson:
+    default-property-inclusion: non-null
 
 ---
 spring:

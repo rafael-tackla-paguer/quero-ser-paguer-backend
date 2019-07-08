@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -44,7 +45,7 @@ public class Order implements Serializable{
 	@Column(name = "valor", precision = 10, scale = 2)
 	private BigDecimal value;
 	
-	@Getter(onMethod_={@JsonIgnore})
 	@OneToMany(mappedBy = "order")
+	@JsonIgnoreProperties("order")
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 }
