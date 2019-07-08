@@ -21,5 +21,5 @@ public interface OrderService {
 
 	PageModel<Order> findAll(Pageable pageable);
 	
-	PageModel<Order> findAllByCustomerId(Integer id, Pageable pageable);
+	PageModel<Order> findAllByCustomerId(Integer customerId, Pageable pageable);
 }

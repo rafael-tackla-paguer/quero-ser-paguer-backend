@@ -54,4 +54,9 @@ public class OrderItemServiceImpl implements OrderItemService {
 		return pageModel;
 	}
 
+	@Override
+	public List<OrderItem> findAllByOrderId(Integer orderId) {
+		return repository.findAllByOrderId(orderId);
+	}
+
 }

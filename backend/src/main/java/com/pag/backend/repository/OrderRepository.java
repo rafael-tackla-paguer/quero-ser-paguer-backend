@@ -14,6 +14,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
 	public List<Order> findAllByCustomerId(Integer id);
 
-	@Query("from pedido _this where _this.customer.id =:idCustomer ")
-	public Page<Order> findAllByCustomerId(@Param("idCustomer") Integer idCustomer, Pageable pageable);
+	@Query("from pedido _this where _this.customer.id =:customerId ")
+	public Page<Order> findAllByCustomerId(@Param("customerId") Integer idCustomer, Pageable pageable);
 }
