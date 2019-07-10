@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -34,6 +35,7 @@ public class Product implements Serializable{
 	private Integer id;
 	
 	@NotBlank(message = "Name required")
+	@Size(message = "The name must contain a maximum of 100 characters.")
 	@Column(name = "nome", length = 100, nullable = false, unique = true)
 	private String name;
 	

@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,10 +40,12 @@ public class Customer implements Serializable {
 	private Integer id;
 	
 	@NotBlank(message = "Name required")
+	@Size(message = "The name must contain a maximum of 100 characters.")
 	@Column(name = "nome", length = 100, nullable = false)
 	private String name;
 	
 	@NotBlank(message = "CPF required")
+	@Size(message = "The CPF must contain a maximum of 11 characters.")
 	@Column(length = 11, nullable = false, unique = true, columnDefinition = "char(11)")
 	private String cpf;
 	
