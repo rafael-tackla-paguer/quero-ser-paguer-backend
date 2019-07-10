@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: loadData-item_pedido
+      author: rafael.tackla
+      changes:
+        - loadData:
+            tableName: item_pedido
+            file: db/loaddata/itens_pedido.csv      

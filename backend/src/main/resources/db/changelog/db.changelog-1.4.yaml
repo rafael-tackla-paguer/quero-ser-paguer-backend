@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: loadData-cliente
+      author: rafael.tackla
+      changes:
+        - loadData:
+            tableName: cliente
+            file: db/loaddata/clientes.csv      

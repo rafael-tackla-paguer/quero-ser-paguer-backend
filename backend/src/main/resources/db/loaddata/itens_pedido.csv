@@ -1,0 +1,4 @@
+id,id_pedido,id_produto,quantidade,preco
+1,1,1,2,26
+2,1,2,1,6.49
+3,2,3,4,67.96
