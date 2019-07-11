@@ -20,6 +20,11 @@ import com.pag.backend.domain.Order;
 import com.pag.backend.model.PageModel;
 import com.pag.backend.service.OrderService;
 
+/**
+ * Classe de controller responsável pelo recurso {@link Order}
+ * @author rafael.tackla
+ *
+ */
 @RestController
 @RequestMapping(value = "orders")
 public class OrderResource {

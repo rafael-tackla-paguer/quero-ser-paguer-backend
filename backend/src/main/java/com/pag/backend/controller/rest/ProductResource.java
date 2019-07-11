@@ -20,6 +20,11 @@ import com.pag.backend.domain.Product;
 import com.pag.backend.model.PageModel;
 import com.pag.backend.service.ProductService;
 
+/**
+ *Classe de controller responsável pelo recurso {@link Product}
+ * @author rafael.tackla
+ *
+ */
 @RestController
 @RequestMapping(value = "products")
 public class ProductResource {

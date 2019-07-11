@@ -18,6 +18,10 @@ import com.pag.backend.service.OrderItemService;
 import com.pag.backend.service.OrderService;
 import com.pag.backend.service.exception.NotFoundException;
 
+/**
+ * @author rafael.tackla
+ *
+ */
 @Service
 public class OrderServiceImpl implements OrderService {
 

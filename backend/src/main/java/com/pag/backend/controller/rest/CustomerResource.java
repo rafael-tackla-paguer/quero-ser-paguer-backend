@@ -23,6 +23,11 @@ import com.pag.backend.model.PageModel;
 import com.pag.backend.service.CustomerService;
 import com.pag.backend.service.OrderService;
 
+/**
+ * Classe de controller responsável pelo recurso {@link Customer}
+ * @author rafael.tackla
+ *
+ */
 @RestController
 @RequestMapping(value = "customers")
 public class CustomerResource {

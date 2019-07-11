@@ -14,6 +14,10 @@ import com.pag.backend.repository.CustomerRepository;
 import com.pag.backend.service.CustomerService;
 import com.pag.backend.service.exception.NotFoundException;
 
+/**
+ * @author rafael.tackla
+ *
+ */
 @Service
 public class CustomerServiceImpl implements CustomerService {
 

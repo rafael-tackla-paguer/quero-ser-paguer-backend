@@ -18,6 +18,11 @@ import com.pag.backend.model.ApiErrorModel;
 import com.pag.backend.service.exception.NotFoundException;
 
 
+/**
+ * Classe controller responsável por manipular exceções dos serviços RESTful.
+ * @author rafael.tackla
+ *
+ */
 @ControllerAdvice
 public class ResourceExceptionHandler extends ResponseEntityExceptionHandler{
 	

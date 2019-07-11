@@ -14,6 +14,10 @@ import com.pag.backend.repository.OrderItemRepository;
 import com.pag.backend.service.OrderItemService;
 import com.pag.backend.service.exception.NotFoundException;
 
+/**
+ * @author rafael.tackla
+ *
+ */
 @Service
 public class OrderItemServiceImpl implements OrderItemService {
 

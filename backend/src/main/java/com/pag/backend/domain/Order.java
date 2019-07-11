@@ -22,28 +22,45 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Mapeamento da tabela "pedido" 
+ * @author rafael.tackla
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "pedido")
 public class Order implements Serializable{
 	/**
-	 * 
+	 * Serial
 	 */
 	private static final long serialVersionUID = 5059268557324895665L;
 
+	/**
+	 *Chave Primária 
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	/**
+	 *Cliente que fez o pedido 
+	 */
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", nullable = false)
 	@NotNull(message = "customer required")
 	private Customer customer;
 	
+	/**
+	 * Valor total do pedido 
+	 */
 	@Column(name = "valor", precision = 10, scale = 2)
 	private BigDecimal value;
 	
+	/**
+	 *Itens associados  
+	 */
 	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("order")
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();

@@ -3,9 +3,16 @@ package com.pag.backend.model;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * Classe modelo para {@link ResponseEntity} quando houver mais de um erro
+ * @author rafael.tackla
+ *
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ApiErrorListModel extends ApiErrorModel {
