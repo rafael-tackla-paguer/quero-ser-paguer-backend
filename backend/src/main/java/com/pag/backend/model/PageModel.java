@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 /**
  * @author rafael.tackla
  *	Classe modelo de {@link ResponseEntity} para operações com paginação
- * @param <T>
+ * @param <T> - Classe da lista de elementos
  */
 @Data
 @AllArgsConstructor

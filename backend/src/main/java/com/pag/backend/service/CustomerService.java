@@ -6,10 +6,9 @@ import org.springframework.data.domain.Pageable;
 
 import com.pag.backend.domain.Customer;
 import com.pag.backend.model.PageModel;
-import com.pag.backend.service.impl.CustomerServiceImpl;
 
 /**
- * Inteface para gerenciar {@link CustomerServiceImpl}
+ * Inteface para gerenciar {@link Customer}
  * @author rafael.tackla
  *
  */
@@ -18,22 +17,22 @@ public interface CustomerService {
 	/**
 	 * Insere novo registro
 	 * 
-	 * @param customer
-	 * @return
+	 * @param customer - {@link Customer} a ser inserido
+	 * @return - {@link Customer} com id preenchido
 	 */
 	Customer save (Customer customer);
 	
 	/**
 	 * Atualiza registro
 	 * 
-	 * @param customer
-	 * @return
+	 * @param customer - {@link Customer} a ser atualizado
+	 * @return - {@link Customer} atualizado
 	 */
 	Customer update(Customer customer);
 	
 	/**
-	 * deleta registro pelo {@link Customer#getId()}
-	 * @param id
+	 * deleta registro
+	 * @param id - Identificador de {@link Customer}
 	 */
 	void delete(Integer id);
 	
@@ -44,15 +43,15 @@ public interface CustomerService {
 	List<Customer> findAll();
 	
 	/**
-	 * Busca o registro pelo {@link Customer#getId()}
-	 * @param id
+	 * Busca o registro 
+	 * @param id - Identificador de {@link Customer}
 	 * @return {@link Customer}
 	 */
 	Customer findById(Integer id);
 
 	/**
 	 * Retorna todos os registros cadastrados <b>com Paginação</b>
-	 * @param pageable
+	 * @param pageable - Objeto de paginação {@link Pageable}
 	 * @return {@link PageModel} of {@link Customer}
 	 */
 	PageModel<Customer> findAll(Pageable pageable);

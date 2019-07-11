@@ -6,10 +6,9 @@ import org.springframework.data.domain.Pageable;
 
 import com.pag.backend.domain.Product;
 import com.pag.backend.model.PageModel;
-import com.pag.backend.service.impl.ProductServiceImpl;
 
 /**
- * Interface para gerenciar {@link ProductServiceImpl}
+ * Interface para gerenciar {@link Product}
  * @author rafael.tackla
  */
 public interface ProductService {
@@ -18,21 +17,21 @@ public interface ProductService {
 	/**
 	 * Insere novo registro
 	 * 
-	 * @param product
-	 * @return
+	 * @param product - {@link Product} a ser inserido
+	 * @return {@link Product} com identificador preenchido
 	 */
 	Product save (Product product);
 	
 	/**
 	 * Atualiza registro
-	 * @param product
-	 * @return
+	 * @param product - {@link Product} a ser atualizado
+	 * @return {@link Product} atualizado
 	 */
 	Product update(Product product);
 	
 	/**
-	 * Deleta registro pelo {@link Product#getId()}
-	 * @param id
+	 * Deleta registro
+	 * @param id - Identificador de {@link Product}
 	 */
 	void delete(Integer id);
 	
@@ -43,15 +42,15 @@ public interface ProductService {
 	List<Product> findAll();
 	
 	/**
-	 * Busca o registro pelo {@link Product#getId()}
-	 * @param id
+	 * Busca o registro
+	 * @param id - Identificador de {@link Product}
 	 * @return {@link Product}
 	 */
 	Product findById(Integer id);
 	
 	/**
 	 * Retorna todos os registros cadastrados <b>com Paginação</b>
-	 * @param pageable
+	 * @param pageable - Objeto de paginação {@link Pageable}
 	 * @return {@link PageModel} of {@link Product}
 	 */
 	PageModel<Product> findAll(Pageable pageable);
