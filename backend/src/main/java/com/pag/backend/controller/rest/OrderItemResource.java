@@ -20,6 +20,8 @@ import com.pag.backend.domain.OrderItem;
 import com.pag.backend.model.PageModel;
 import com.pag.backend.service.OrderItemService;
 
+import io.swagger.annotations.Api;
+
 /**
  * Classe de controller responsável pelo recurso {@link OrderItem}
  * @author rafael.tackla
@@ -27,6 +29,7 @@ import com.pag.backend.service.OrderItemService;
  */
 @RestController
 @RequestMapping(value = "order-items")
+@Api(tags = "Item Pedido")
 public class OrderItemResource {
 	
 	@Autowired

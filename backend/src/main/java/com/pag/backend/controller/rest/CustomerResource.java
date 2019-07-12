@@ -23,6 +23,10 @@ import com.pag.backend.model.PageModel;
 import com.pag.backend.service.CustomerService;
 import com.pag.backend.service.OrderService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 /**
  * Classe de controller responsável pelo recurso {@link Customer}
  * @author rafael.tackla
@@ -30,6 +34,7 @@ import com.pag.backend.service.OrderService;
  */
 @RestController
 @RequestMapping(value = "customers")
+@Api(tags = "Cliente")
 public class CustomerResource {
 
 	@Autowired
@@ -38,6 +43,7 @@ public class CustomerResource {
 	@Autowired
 	private OrderService orderService;
 	
+	@ApiOperation(value = "Criar Cliente", notes = "Criar Cliente")
 	@PostMapping
 	public ResponseEntity<Customer> save(@RequestBody @Valid Customer customer){
 		if (customer.getId()!=null)
@@ -47,6 +53,7 @@ public class CustomerResource {
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer);
 	}
 	
+	@ApiOperation(value = "Atualizar Cliente", notes = "Atualizar Cliente")
 	@PutMapping("/{id}")
 	public ResponseEntity<Customer> update(@PathVariable(name = "id") Integer id, @RequestBody @Valid Customer customer){
 		customer.setId(id);
@@ -54,15 +61,17 @@ public class CustomerResource {
 		return ResponseEntity.ok(updatedCustomer);
 	}
 	
+	@ApiOperation(value = "Deletar Cliente", notes = "Deletar Cliente")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable Integer id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
+	@ApiOperation(value = "Buscar Clientes", notes = "Buscar Clientes")
 	@GetMapping
-	public ResponseEntity<PageModel<Customer>> findAll(@RequestParam(value = "page", defaultValue = "0") int page,
-			@RequestParam(value = "size", defaultValue = "10") int size) {
+	public ResponseEntity<PageModel<Customer>> findAll(@RequestParam(value = "page", defaultValue = "0") @ApiParam(value = "Número da página") int page,
+			@RequestParam(value = "size", defaultValue = "10") @ApiParam(value = "Quantidade de registros por página") int size) {
 		
 		Pageable pageable = PageRequest.of(page, size);
 		PageModel<Customer> customers = service.findAll(pageable);
@@ -70,12 +79,15 @@ public class CustomerResource {
 		return ResponseEntity.ok(customers);
 	}
 	
+	@ApiOperation(value = "Buscar Cliente pelo ID", notes= "Buscar Cliente pelo ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<Customer> findById(@PathVariable("id") Integer id) {
 		Customer customer = service.findById(id);
 		return ResponseEntity.ok(customer);
 	}
 	
+	
+	@ApiOperation(value = "Buscar pedidos do cliente", notes= "Buscar pedidos do cliente")
 	@GetMapping("/{id}/orders")
 	public ResponseEntity<PageModel<Order>> findAllOrdersByCustomer(@PathVariable(name = "id") Integer id, @RequestParam(value = "page", defaultValue = "0") int page,
 			@RequestParam(value = "size", defaultValue = "10") int size) {

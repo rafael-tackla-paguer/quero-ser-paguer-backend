@@ -20,6 +20,8 @@ import com.pag.backend.domain.Product;
 import com.pag.backend.model.PageModel;
 import com.pag.backend.service.ProductService;
 
+import io.swagger.annotations.Api;
+
 /**
  *Classe de controller responsável pelo recurso {@link Product}
  * @author rafael.tackla
@@ -27,6 +29,7 @@ import com.pag.backend.service.ProductService;
  */
 @RestController
 @RequestMapping(value = "products")
+@Api(tags = "Produto")
 public class ProductResource {
 	
 	@Autowired
