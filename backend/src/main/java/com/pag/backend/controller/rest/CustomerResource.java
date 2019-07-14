@@ -23,9 +23,13 @@ import com.pag.backend.model.PageModel;
 import com.pag.backend.service.CustomerService;
 import com.pag.backend.service.OrderService;
 
+<<<<<<< HEAD
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+=======
+import io.swagger.annotations.ApiOperation;
+>>>>>>> branch 'master' of https://github.com/rafael-tackla-paguer/quero-ser-paguer-backend.git
 
 /**
  * Classe de controller responsável pelo recurso {@link Customer}
