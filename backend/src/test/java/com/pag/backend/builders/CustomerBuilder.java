@@ -1,5 +1,7 @@
 package com.pag.backend.builders;
 
+import java.util.Date;
+
 import com.pag.backend.domain.Customer;
 
 import lombok.AccessLevel;
@@ -14,6 +16,8 @@ public class CustomerBuilder {
 		CustomerBuilder builder = new CustomerBuilder();
 		builder.customer = new Customer();
 		builder.customer.setName("Cliente 1");
+		builder.customer.setCpf("11111111111");
+		builder.customer.setBirthDate(new Date());
 		return builder;
 	}
 	

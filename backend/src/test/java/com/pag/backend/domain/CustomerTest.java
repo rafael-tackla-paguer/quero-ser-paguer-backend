@@ -53,7 +53,7 @@ public class CustomerTest {
 	}
 	
 	@Test
-	public void customerNoNameConstraintViolationTest() {
+	public void customerNoConstraintViolationTest() {
 		//cenario
 		Customer customer = CustomerBuilder.oneCustomer().now();
 		
