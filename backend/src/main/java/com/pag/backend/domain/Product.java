@@ -41,4 +41,6 @@ public class Product implements Serializable{
 	
 	@Column(name = "preco_sugerido", precision = 10, scale = 2)
 	private BigDecimal suggestedPrice;
+	
+	private Double discount;
 }
